@@ -1,0 +1,70 @@
+{
+  "name": "Alex Example",
+  "start": "2023-01-09",
+  "end": "2025-06-30",
+  "eyebrow": "Engineering record · Jan 2023 – Jun 2025",
+  "subtitle": "Software Engineer (Junior → Mid-level, promoted Mar 2024) · Example tribe, Example Corp",
+  "meta": "TypeScript / Node.js · Kafka · Elasticsearch · React",
+  "github": {"org": "example-org", "login": "alex-example"},
+  "summary": [
+    "Full-stack engineer on the Example tribe. Shipped **customer-facing features** and owned a service migration end to end.",
+    "Moved into leadership: led a PoC, ran the team launchpad for a quarter and co-ran hiring interviews."
+  ],
+  "impact_tiles": [
+    {"v": "3–5x", "l": "faster page load from the PoC they led"},
+    {"v": "~12k", "small": "users", "l": "used the feature in its first 3 months (team feature)"}
+  ],
+  "number_tiles": [
+    {"v": "2", "l": "internal tech talks"}
+  ],
+  "numbers_note": "Usage figures come from product analytics and exclude internal users.",
+  "chart_bands": [
+    {"label": "Promoted to Mid", "from": "2024-Q1", "to": "2024-Q1"}
+  ],
+  "redact": [
+    ["\\b(CID|company id)\\s*#?\\d{4,}", "\\1 [redacted]"],
+    ["(?<![\\d.])\\d{7,9}(?![\\d.])", "[ID]"]
+  ],
+  "footer": "Compiled from GitHub, Jira, Confluence, Slack, Culture Amp and product analytics. Customer names, revenue figures and internal links are deliberately left out.",
+  "overview": {
+    "eyebrow": "Software Engineer · Example Corp · Jan 2023 – Jun 2025",
+    "role": "Full-stack TypeScript / Node.js engineer, Example tribe. Promoted Junior → Mid-level in Mar 2024.",
+    "pitch": "Built product features on a Kafka → Elasticsearch platform and **led a PoC that made loading 3–5x faster**.",
+    "facts": [
+      {"v": "2 yrs 6 mo", "l": "tenure, one tribe"},
+      {"v": "180", "l": "PRs authored across 20 repos"},
+      {"v": "150", "l": "PRs reviewed"}
+    ],
+    "legend": {"role": "Junior", "promoted": "Mid-level"},
+    "lanes": [
+      {"name": "Role", "bars": [
+        {"label": "Junior engineer", "from": "2023-01-09", "to": "2024-03-15", "kind": "role", "detail": "Jan 2023 – Mar 2024"},
+        {"label": "Mid-level engineer", "from": "2024-03-15", "to": "end", "kind": "promoted", "detail": "Promoted Mar 2024"}
+      ]},
+      {"name": "Leadership", "bars": [
+        {"label": "PoC lead", "from": "2024-05", "to": "2024-06-30", "kind": "lead", "detail": "Led the loading PoC; 3–5x faster"}
+      ]},
+      {"name": "Missions", "bars": [
+        {"label": "Feature X", "from": "2023-03", "to": "2023-08-31", "kind": "work", "detail": "What it was and their part in it"},
+        {"label": "Service migration", "from": "2024-09", "to": "2025-02-28", "kind": "work", "detail": "Sole engineer, 2 services"}
+      ]},
+      {"name": "On-call", "bars": [
+        {"label": "On-call rotation", "from": "2023-10", "to": "end", "kind": "oncall", "detail": "~5 P1 weeks"}
+      ]}
+    ],
+    "milestones": [
+      {"date": "2024-03-15", "label": "Promoted to Mid", "detail": "Junior → Mid"},
+      {"date": "2024-06-20", "label": "Tech talk", "row": 1, "anchor": "start", "detail": "Presented the PoC results"}
+    ],
+    "wins": [
+      {"metric": "3–5x", "small": "faster", "title": "Led a performance PoC", "text": "What they did, how, and the outcome.", "when": "May – Jun 2024"}
+    ],
+    "quotes": [
+      {"text": "A short, specific quote from a colleague.", "who": "Colleague Name", "context": "manager · H1 2024 review", "big": true},
+      {"text": "Another quote.", "who": "Peer Name", "context": "peer · #shoutouts, Feb 2025"}
+    ],
+    "promo": "Promoted to Mid-level in Mar 2024.",
+    "stack": ["TypeScript", "Node.js", "React", "Kafka", "Elasticsearch", "MySQL"],
+    "footer": "Short version of a full engineering record. Usage figures come from product analytics and exclude internal users."
+  }
+}

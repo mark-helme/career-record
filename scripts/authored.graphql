@@ -1,0 +1,15 @@
+query($q: String!, $endCursor: String) {
+  search(query: $q, type: ISSUE, first: 50, after: $endCursor) {
+    issueCount
+    pageInfo { hasNextPage endCursor }
+    nodes { ... on PullRequest {
+      number title url state isDraft createdAt mergedAt closedAt
+      additions deletions changedFiles
+      repository { nameWithOwner primaryLanguage { name } }
+      baseRefName headRefName body
+      labels(first: 10) { nodes { name } }
+      reviews(first: 50) { totalCount nodes { author { login } state } }
+      comments { totalCount }
+    } }
+  }
+}

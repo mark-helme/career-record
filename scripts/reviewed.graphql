@@ -1,0 +1,10 @@
+query($q: String!, $endCursor: String) {
+  search(query: $q, type: ISSUE, first: 100, after: $endCursor) {
+    pageInfo { hasNextPage endCursor }
+    nodes { ... on PullRequest {
+      number title url state createdAt mergedAt additions deletions
+      author { login }
+      repository { nameWithOwner }
+    } }
+  }
+}

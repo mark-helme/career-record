@@ -1,0 +1,176 @@
+<title>{{TITLE}}</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Schibsted+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBFBF9; --surface:#FFFFFF; --sunk:#F3F4F1; --ink:#1B1F24; --ink2:#3A4149; --muted:#5E6670;
+  --rule:#E3E5E2; --accent:#1F6F5C; --accent-soft:#E4F0EB; --bar:#1F6F5C; --band:#EEF3F0;
+  --st-merged:#1F6F5C; --st-open:#8A6A12; --st-closed:#8A8F96;
+  --display:"Schibsted Grotesk",system-ui,sans-serif; --body:"IBM Plex Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121416; --surface:#181B1E; --sunk:#1D2125; --ink:#E6E8E6; --ink2:#C5CAC8; --muted:#9AA2A8;
+    --rule:#2A2F33; --accent:#5FC4A6; --accent-soft:#1B2D28; --bar:#4FB394; --band:#18221F;
+    --st-merged:#5FC4A6; --st-open:#D9B45A; --st-closed:#8A9198; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121416; --surface:#181B1E; --sunk:#1D2125; --ink:#E6E8E6; --ink2:#C5CAC8; --muted:#9AA2A8;
+  --rule:#2A2F33; --accent:#5FC4A6; --accent-soft:#1B2D28; --bar:#4FB394; --band:#18221F;
+  --st-merged:#5FC4A6; --st-open:#D9B45A; --st-closed:#8A9198; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--body);
+  padding-block:0;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.page{max-width:880px;margin:0 auto;padding:56px 0 96px}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+h1,h2,h3,h4{font-family:var(--display);color:var(--ink);line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(34px,6vw,52px);font-weight:700;letter-spacing:-.02em;margin:0 0 8px}
+h2{font-size:28px;font-weight:700;letter-spacing:-.01em;margin:0 0 6px}
+h3{font-size:19px;font-weight:600;margin:28px 0 8px}
+h4{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:18px 0 6px}
+p{margin:0 0 12px} ul,ol{margin:0 0 12px;padding-left:22px} li{margin:4px 0} li>ul,li>ol{margin:4px 0 6px}
+strong{font-weight:600;color:var(--ink)}
+code{font:500 .86em var(--mono);background:var(--sunk);padding:1px 5px;border-radius:4px;overflow-wrap:anywhere}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.sub{font-size:18px;color:var(--ink2);margin:0 0 4px}
+.meta{font:400 13px var(--mono);color:var(--muted)}
+header.top{padding-bottom:28px;border-bottom:1px solid var(--rule)}
+nav.toc{margin:24px 0 8px;display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px}
+nav.toc a{color:var(--ink2)} nav.toc a:hover{color:var(--accent)}
+nav.toc .n{font:500 11px var(--mono);color:var(--muted);margin-right:4px}
+section.s{padding-top:56px}
+.shead{display:flex;align-items:baseline;gap:12px;margin-bottom:18px;border-bottom:1px solid var(--rule);padding-bottom:10px}
+.shead .n{font:500 13px var(--mono);color:var(--accent)}
+.lede{font-size:18px;line-height:1.6;color:var(--ink2);max-width:68ch}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin:22px 0 8px}
+.tile{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:14px 16px}
+.tile .v{font:700 28px/1.1 var(--display);color:var(--ink);letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.tile .v small{font-size:15px;font-weight:600;color:var(--muted)}
+.tile .l{font-size:13.5px;color:var(--muted);line-height:1.4;margin-top:6px}
+.tiles.impact .tile{border-left:3px solid var(--accent)}
+.note{font-size:13.5px;color:var(--muted)}
+.chart{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:18px 14px 8px;margin:8px 0}
+.chart svg{width:100%;height:auto;display:block}
+.chart .grid{stroke:var(--rule);stroke-width:1}
+.chart .axis{stroke:var(--muted);stroke-width:1}
+.chart .tick{font:400 11px var(--mono);fill:var(--muted)}
+.chart .year{font-weight:500;fill:var(--ink2)}
+.chart .band{fill:var(--band)}
+.chart .bandlabel{font:500 11px var(--body);fill:var(--accent)}
+.chart .bar path{fill:var(--bar);transition:opacity .15s}
+.chart .hit{fill:transparent}
+.chart .val{font:500 12px var(--mono);fill:var(--ink)}
+.chart .val.soft{opacity:0;transition:opacity .15s}
+.chart .bar:hover .val.soft,.chart .bar:focus .val.soft{opacity:1}
+.chart svg:hover .bar path{opacity:.55} .chart svg .bar:hover path{opacity:1}
+.chart .bar:focus{outline:none} .chart .bar:focus path{stroke:var(--ink);stroke-width:1.5}
+figcaption{font-size:13px;color:var(--muted);margin-top:6px}
+.bullets ol{padding-left:0;list-style:none;counter-reset:b}
+.bullets ol>li{counter-increment:b;position:relative;padding:14px 0 14px 44px;border-bottom:1px solid var(--rule);margin:0}
+.bullets ol>li::before{content:counter(b,decimal-leading-zero);position:absolute;left:0;top:15px;font:500 13px var(--mono);color:var(--accent)}
+.arc{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:18px 22px 8px;margin-bottom:24px}
+.arc h3,.arc h4{margin-top:4px}
+ol.quarters{list-style:none;padding:0;margin:0;border-left:2px solid var(--rule)}
+li.q{position:relative;padding:0 0 22px 22px;margin:0}
+li.q::before{content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.qhead{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;margin-bottom:4px}
+.qname{font:600 17px var(--display)}
+.qmeta{font:400 12.5px var(--mono);color:var(--muted)}
+.qbody{font-size:15px;color:var(--ink2)}
+.qbody h3,.qbody h4{font-size:14px;margin:10px 0 4px}
+.cardtoc{columns:2 260px;column-gap:28px;font-size:14.5px;margin:0 0 20px;padding-left:20px}
+.cardtoc li{break-inside:avoid}
+article.card,article.story{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:20px 24px 12px;margin:0 0 18px;scroll-margin-top:16px}
+article.card header,article.story header{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;align-items:baseline;border-bottom:1px solid var(--rule);padding-bottom:10px;margin-bottom:4px}
+article.card h3,article.story h3{margin:0;font-size:20px}
+.when{font:400 12.5px var(--mono);color:var(--muted);white-space:nowrap}
+.field{font-size:15px}
+.field.f-impact-outcome{background:var(--accent-soft);border-radius:8px;padding:2px 14px 4px;margin:14px -6px 10px}
+.field.f-impact-outcome h4{color:var(--accent)}
+.field.f-tech,.field.f-evidence{font-size:13.5px;color:var(--muted)}
+.field.f-tech p,.field.f-evidence p,.field.f-evidence li{color:var(--muted)}
+.tags{font:400 12.5px var(--mono);color:var(--accent);margin:0}
+article.story>ul>li>strong:first-child{color:var(--accent)}
+.prose{font-size:15.5px}
+.prose h3{border-top:1px solid var(--rule);padding-top:20px}
+.prose h3:first-child{border-top:0;padding-top:0;margin-top:0}
+.prose blockquote{margin:0}
+.tablewrap{overflow-x:auto;margin:6px 0 18px;border:1px solid var(--rule);border-radius:8px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.45}
+th{font:600 12px var(--body);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);text-align:left;background:var(--sunk);position:sticky;top:0}
+th,td{padding:7px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+tbody tr:last-child td{border-bottom:0}
+td.num{font-family:var(--mono);font-size:12.5px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.st{font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.04em;padding:1px 6px;border-radius:4px;border:1px solid currentColor}
+.st-merged{color:var(--st-merged)} .st-open{color:var(--st-open)} .st-closed{color:var(--st-closed)}
+.appx details{border-top:1px solid var(--rule);padding:12px 0}
+.appx summary{cursor:pointer;font:600 17px var(--display);list-style-position:outside}
+.appx summary .c{font:400 13px var(--mono);color:var(--muted);margin-left:8px}
+.appx .tablewrap{max-height:70vh;overflow:auto}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+footer{margin-top:64px;padding-top:16px;border-top:1px solid var(--rule);font-size:13px;color:var(--muted)}
+@media (max-width:640px){
+  .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .page{padding-top:32px}
+  .two{grid-template-columns:1fr}
+  article.card,article.story{padding:16px 16px 8px}
+  .chart{padding:12px 6px 4px}
+  .bullets ol>li{padding-left:34px}
+}
+@media print{
+  @page{size:A4;margin:16mm 14mm}
+  :root,:root[data-theme]{--bg:#fff;--surface:#fff;--sunk:#F3F4F1;--ink:#1B1F24;--ink2:#3A4149;--muted:#5E6670;--rule:#E3E5E2;--accent:#1F6F5C;--accent-soft:#E4F0EB;--bar:#1F6F5C;--band:#EEF3F0;--st-merged:#1F6F5C;--st-open:#8A6A12;--st-closed:#8A8F96;color-scheme:light}
+  body{font-size:11pt;padding:0}
+  .page{max-width:none;padding:0}
+  nav.toc{display:none}
+  section.s{padding-top:0}
+  section.s.brk{break-before:page}
+  article.card,article.story,.tile,.chart,li.q,.bullets li{break-inside:avoid}
+  h2,h3,h4{break-after:avoid}
+  .appx details{display:block} .appx details>summary{list-style:none}
+  .appx .tablewrap{max-height:none;overflow:visible}
+  th{position:static}
+  tr{break-inside:avoid}
+  .chart .val.soft{opacity:1}
+  a{color:var(--ink)}
+}
+</style>
+
+<div class="page">
+<header class="top">
+  <div class="eyebrow">{{EYEBROW}}</div>
+  <h1>{{NAME}}</h1>
+  <p class="sub">{{SUBTITLE}}</p>
+  <p class="meta">{{META}}</p>
+  <nav class="toc" aria-label="Contents">{{TOC}}</nav>
+</header>
+
+<section class="s" id="summary">
+  <div class="shead"><span class="n">01</span><h2>Executive summary</h2></div>
+  {{LEDE}}
+  <!--opt:impact--><h3>Impact</h3>
+  <div class="tiles impact">{{IMPACT_TILES}}</div><!--/opt:impact-->
+  <h3>By the numbers</h3>
+  <div class="tiles">{{NUMBER_TILES}}</div>
+  {{NUMBERS_NOTE}}
+  <!--opt:chart--><h3>Pull requests over time</h3>
+  <figure class="chart" style="margin:0">{{CHART}}</figure>
+  <figcaption>Authored PRs per quarter (by merge date, else creation date).{{PARTIAL_NOTE}} Hover a bar for its value.</figcaption><!--/opt:chart-->
+</section>
+
+{{SECTIONS}}
+
+<!--opt:appendix--><section class="s brk appx" id="appendix">
+  <div class="shead"><span class="n">A</span><h2>Appendix: full archive</h2></div>
+  {{APPENDIX}}
+</section><!--/opt:appendix-->
+
+<footer>{{FOOTER}}</footer>
+</div>
